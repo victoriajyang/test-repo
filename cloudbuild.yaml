@@ -6,4 +6,4 @@ steps:
        #   args: ['run', 'hello']
        #   env: ['PROJECT_ROOT=hello']
         - name: 'gcr.io/cloud-builders/bazel'
-          args: ['build', '...']
+          args: ['build', 'hello.go']
