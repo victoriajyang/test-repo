@@ -11,7 +11,7 @@ func TestHello(t *testing.T) {
 	timezone := time.FixedZone("", secondsEastOfUTC)
 	expected := time.Now().In(timezone)
 	
-	if given_ts.String() != expected {
+	if given_ts.String() != expected.String() {
 		t.Errorf("Got '%v', expected '%v'", given_ts, expected)
 	}
 }
