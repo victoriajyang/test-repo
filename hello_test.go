@@ -10,8 +10,5 @@ func TestHello(t *testing.T) {
 	if !expected.Compare(ts).Equal(IntZero).(Bool) {
 		t.Errorf("Got '%v', expected '%v'", ts, expected)
 	}
-	else {
-		t.Errorf("YAY!")
-	}
 }
 
