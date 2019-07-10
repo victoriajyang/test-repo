@@ -2,7 +2,7 @@ package main
 
 import (
 	"testing"
-	"tim"
+	"time"
 )
 
 func TestHello(t *testing.T) {
