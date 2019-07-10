@@ -3,5 +3,5 @@ steps:
           args: ['install', '.']
           env: ['PROJECT_ROOT=hello']
         - name: 'gcr.io/cloud-builders/go'
-          args: ['build', 'hello']
+          args: ['run', 'hello']
           env: ['PROJECT_ROOT=hello']
