@@ -1,7 +1,9 @@
 steps:
-        - name: 'gcr.io/cloud-builders/go'
-          args: ['install', '.']
-          env: ['PROJECT_ROOT=hello']
-        - name: 'gcr.io/cloud-builders/go'
-          args: ['run', 'hello']
-          env: ['PROJECT_ROOT=hello']
+        #- name: 'gcr.io/cloud-builders/go'
+        #  args: ['install', '.']
+        #  env: ['PROJECT_ROOT=hello']
+       # - name: 'gcr.io/cloud-builders/go'
+       #   args: ['run', 'hello']
+       #   env: ['PROJECT_ROOT=hello']
+        - name: 'gcr.io/cloud-builders/bazel'
+          args: ['build', 'hello.go']
