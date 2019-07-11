@@ -34,7 +34,7 @@ go_repository(
   importpath = "github.com/antlr/antlr4",
 )
 
-# Required to use embedded BUILD.bazel file in googleapis/google/rpc
+#Required to use embedded BUILD.bazel file in googleapis/google/rpc
 git_repository(
     name = "io_grpc_grpc_java",
     remote = "https://github.com/grpc/grpc-java.git",
@@ -66,14 +66,6 @@ cc_proto_library(
     visibility = ['//visibility:public'],
 )
 go_proto_library(
-    name = 'rpc_status_go_proto',
-    # TODO: Switch to the correct import path when bazel rules fixed.
-    #importpath = 'google.golang.org/genproto/googleapis/rpc/status',
-    importpath = 'github.com/googleapis/googleapis/google/rpc',
-    proto = '//google/rpc:status_proto',
-    visibility = ['//visibility:public'],
-)
-go_proto_library(
     name = 'expr_v1beta1_go_proto',
     importpath = 'google.golang.org/genproto/googleapis/api/expr/v1beta1',
     proto = '//google/api/expr/v1beta1',
@@ -98,6 +90,8 @@ go_repository(
   remote = "https://github.com/golang/text",
   vcs = "git",
 )
+
+
 
 # Run the dependencies at the end.  These will silently try to import some
 # of the above repositories but at different versions, so ours must come first.
