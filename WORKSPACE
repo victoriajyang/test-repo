@@ -1,7 +1,7 @@
 #workspace(name = "test-repo")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -22,31 +22,9 @@ load("@bazel_gazelle//:deps.bzl", "go_repository")
 # Do *not* call *_dependencies(), etc, yet.  See comment at the end.
 
 go_repository(
-  name = "org_golang_google_genproto",
-  build_file_proto_mode = "disable",
-  commit = "bd91e49a0898e27abb88c339b432fa53d7497ac0",
-  importpath = "google.golang.org/genproto",
-)
-
-go_repository(
   name = "com_github_antlr",
   tag = "4.7.2",
   importpath = "github.com/antlr/antlr4",
-)
-
-#Required to use embedded BUILD.bazel file in googleapis/google/rpc
-git_repository(
-    name = "io_grpc_grpc_java",
-    remote = "https://github.com/grpc/grpc-java.git",
-    tag = "v1.21.0",
-)
-
-go_repository(
-  name = "org_golang_google_grpc",
-  importpath = "google.golang.org/grpc",
-  tag = "v1.11.3",
-  remote = "https://github.com/grpc/grpc-go.git",
-  vcs = "git",
 )
 
 go_repository(
@@ -56,7 +34,6 @@ go_repository(
   remote = "https://github.com/golang/text",
   vcs = "git",
 )
-
 
 
 # Run the dependencies at the end.  These will silently try to import some
