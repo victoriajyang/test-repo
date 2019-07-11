@@ -41,40 +41,6 @@ git_repository(
     tag = "v1.21.0",
 )
 
-new_git_repository(
-    name = "com_google_googleapis",
-    remote = "https://github.com/googleapis/googleapis.git",
-    commit = "980cdfa876e54b1db4395617e14037612af25466",
-    build_file_content = """
-load('@io_bazel_rules_go//proto:def.bzl', 'go_proto_library')
-cc_proto_library(
-    name = 'cc_rpc_status',
-    deps = ['//google/rpc:status_proto'],
-    visibility = ['//visibility:public'],
-)
-cc_proto_library(
-    name = 'cc_rpc_code',
-    deps = ['//google/rpc:code_proto'],
-    visibility = ['//visibility:public'],
-)
-cc_proto_library(
-    name = 'cc_expr_v1beta1',
-    deps = [
-        '//google/api/expr/v1beta1/eval_proto',
-        '//google/api/expr/v1beta1/value_proto',
-    ],
-    visibility = ['//visibility:public'],
-)
-go_proto_library(
-    name = 'expr_v1beta1_go_proto',
-    importpath = 'google.golang.org/genproto/googleapis/api/expr/v1beta1',
-    proto = '//google/api/expr/v1beta1',
-    visibility = ['//visibility:public'],
-    deps = ['@com_google_googleapis//:rpc_status_go_proto'],
-)
-"""
-)
-
 go_repository(
   name = "org_golang_google_grpc",
   importpath = "google.golang.org/grpc",
